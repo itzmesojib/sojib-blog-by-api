@@ -1,0 +1,28 @@
+/*  google font link */
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+</style>
+
+
+
+.p1{
+font-family: "Inter", sans-serif;
+font-weight: 400;
+font-size: 18px;
+text-align: center;
+color: #12132D99;
+}
+.p-2{
+    font-family: "Inter", sans-serif;
+font-weight: 400;
+font-size: 15px;
+}
+.mulish{
+    font-family: "Mulish", sans-serif;
+}
+
+.hero{
+    background-image: url("images/bgbanner.png");
+
+}

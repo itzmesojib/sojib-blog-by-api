@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- tailwind & daisy ui link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Font Awesome Link-->
+<script src="https://kit.fontawesome.com/e9bb1477a9.js" crossorigin="anonymous"></script>
+<!-- css link -->
+<link rel="stylesheet" href="style.css">
+    <title>Read Latest Blog With Us</title>
+</head>
+<body class=""> 
+    <main class="container mx-auto px-5 lg:px-20">
+    <!-- header part -->
+    <header class="pt-5 ">
+        <div class="navbar bg-white">
+            <div class="navbar-start">
+              <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                </div>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li class="p-5"><a><i class="fa-solid fa-house"></i></a></li>
+                    <li><a><i class="fa-solid fa-pen"></i></a></li>
+                    <li><a><i class="fa-solid fa-user-plus"></i></a></li>
+                    <li><a><i class="fa-solid fa-flag"></i></a></li>
+                </ul>
+              </div>
+              <a class="btn btn-ghost text-4xl font-extrabold text-[#12132D]">SOJIB</a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+              <ul class="menu menu-horizontal flex gap-5 px-1">
+                <li class="tooltip rounded-full" data-tip="Home"><a><i class="fa-solid fa-house h-14 w-14 flex justify-center items-center rounded-full bg-[#12132D08] border"></i></a></li>
+                <li class="tooltip rounded-full" data-tip="Pen Tool"><a><i class="fa-solid fa-pen fa-solid  h-14 w-14 flex justify-center items-center rounded-full bg-[#12132D08] border"></i></a></li>
+                <li class="tooltip rounded-full"  data-tip="Add List"><a><i class="fa-solid fa-user-plus fa-solid fa-house h-14 w-14 flex justify-center items-center rounded-full bg-[#12132D08] border"></i></a></li>
+                <li class="tooltip rounded-full" data-tip="Flag"><a><i class="fa-solid fa-flag h-14 w-14 flex justify-center items-center rounded-full bg-[#12132D08] border"></i></a></li>
+              </ul>
+            </div>
+            <div class="navbar-end lg:ml-0 ml-16">
+              <a class="btn bg-[#797DFC] text-white font-semibold">Sign In</a>
+          </div>
+        </div>
+    </header>
+
+    <!-- search section -->
+
+    <section class=" mt-10 lg:mt-8 "> 
+    <div class="hero py-10 lg:py-0 lg:h-96 rounded-3xl container mx-auto bg-[#12132D] flex flex-col lg:flex-row gap-10 lg:gap-40 justify-center">
+       <div class=" flex flex-col gap-4">
+        <h1 class="mulish text-3xl lg:text-5xl font-bold text-white">Welcome to the <br> <span class="text-[#797DFC]">SOJIB</span> Forum</h1>
+        <p class="p1 text-[#FFFFFFCC]">please search our fixed categorys-<br>1.Coding 2.Comedy 3.music</p>
+        <div class="input input-bordered flex items-center gap-2">
+            <input id="textValue" type="text" class="grow" placeholder="Search here anything" />
+            <button onclick="search()" class="badge badge-info p-5 rounded-lg">Search</button> 
+        </div>
+       </div>
+
+       <div class="bg-white w-72 lg:w-96 p-9 lg:p-12 rounded-2xl mulish text-xl font-semibold">
+
+        <div class="flex justify-between">Registered Users<span>01</span></div>
+        <div class="flex justify-between">Forum<span>05</span></div>
+        <div class="flex justify-between">Topics<span>01</span></div>
+        <div class="flex justify-between">Replies<span>01</span></div>
+
+
+       </div>
+    </div>
+</section>
+
+
+<!-- loading -->
+<div id="loader" class="flex justify-center mt-24 hidden">
+<span class="loading loading-spinner loading-lg "></span>
+</div>
+
+<!-- blog section heading -->
+<section  id="blogSection" class="text-center container mx-auto">
+<section class="text-center container mx-auto pb-20 pt-8 lg:pt-20">
+    <h1 class="text-4xl font-extrabold text-[#12132D] mb-4">Let’s Discuss</h1>
+    <p class="p1 text-base">Dive into meaningful conversations, share thoughts, and connect with <br> fellow enthusiasts on our platform. Let's discuss topics that matter.</p>
+</section>
+
+<!-- blog section -->
+
+
+<section class=" flex flex-col flex-col-reverse lg:flex-row lg:flex-row gap-10 lg:gap-5">
+
+    <div id="PostContainer" class="flex flex-col gap-10">
+
+<!-- blogs -->
+    <!-- <div class="w-full bg-[#F1F2FF] lg:h-72 flex gap-5 px-2 lg:px-8 py-2 lg:py-8 border-[1px] border-[#797DFC1A] rounded-2xl">
+        <div class="avatar">
+            <div class="w-16 h-16 rounded-xl">
+              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
+          </div>
+          <div class="flex flex-col gap-5">
+            <div class="flex gap-10 lg:text-lg font-semibold">
+                <h6># <span>Music</span></h6>
+                <h6>Author :<span> Awlad Hossain </span></h6>
+            </div>
+            <h1 class="text-2xl font-bold text-[#12132D]">10 Kids Unaware of Their Halloween Costume</h1>
+            <p class="text-sm ">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+            <hr class="bg-[#12132D40] h-[1px] w-[95%] ">
+            <div class="flex justify-between">
+            <div class="flex gap-10">
+                <div class=""><i class="fa-regular fa-message"></i> <span>560</span></div>
+                <div class=""><i class="fa-regular fa-eye"></i> <span>1,568</span></div>
+                <div class=""><i class="fa-regular fa-clock"></i> <span>5 min</span></div>
+            </div>
+            <button class="w-12 h-12 rounded-full bg-[#10B981]"><i class="fa-solid fa-envelope-open text-2xl"></i></button>
+          </div>
+          </div>
+        </div> -->
+
+  </div>
+
+
+<!-- blog count part -->
+
+<div class="w-full lg:w-[40%]">
+
+    <div class="w-full bg-[#F3F3F4] rounded-2xl flex flex-col gap-5 px-2 py-5" >
+        <div class="flex justify-between px-3 font-bold">
+            <div>
+            <h4 class="text-xl">Title</h4>
+        </div>
+           <div> <p><i class="fa-solid fa-check-double text-[#3DCE09]"></i> <span>Mark as read(<span id="count">0</span>)</span></p>
+           </div>
+        </div>
+            <div id="addCard" class="flex flex-col gap-5">
+                <!-- <div class="w-full bg-white flex gap-1 justify-between px-4 py-5 rounded-xl">
+                    <div class="">
+                        <h2 class="font-bold">10 Kids Unaware of Their Halloween Costume</h2>
+                    </div>
+                    <div class="">
+                        <div class="flex gap-2"><i class="fa-regular fa-eye mt-1"></i> <span>1,568</span></div>
+                    </div>
+                </div> -->
+            </div>
+       
+
+    </div>
+</div>
+
+</section>
+</section>
+
+
+<!-- Join Our Forum section -->
+
+<section class="container mx-auto lg:h-96 bg-[#12132D] mt-20 rounded-2xl flex flex-col lg:flex-row gap-10 justify-center items-center px-10 py-10">
+
+
+    <div class="mulish flex flex-col gap-8">
+        <h1 class="text-3xl font-bold text-white">Join Our Forum</h1>
+        <p class="text-[#FFFFFFCC]">Engage, discuss, and connect with like-minded individuals on our vibrant and informative community forum platform.</p>
+        <button class="btn btn-secondary w-40 bg-[#797DFC]">Registered Now</button>
+    </div>
+    <div class="">
+
+        <img src="images/joinforum.png">
+
+    </div>
+
+</section>
+
+
+<!-- letest post heading -->
+<section class="text-center container mx-auto pb-20 pt-8 lg:pt-20 ">
+    <h1 class="text-4xl font-extrabold text-[#12132D] mb-4">Latest Posts</h1>
+    <p class="p1 text-base">Stay updated with our freshest content, delivering timely news, <br> trends, and compelling stories for you.</p>
+</section>
+
+<!-- letest section -->
+  <section  id="resentPostContainer" class="grid lg:grid-cols-3 gap-10">
+   
+<!-- 
+   <div class="card lg:w-[400%] border-[1px]">
+    <figure class="px-10 pt-10">
+      <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+    </figure>
+    <div class="card-body">
+     <div class="flex gap-2">
+        <i class="fa-regular fa-calendar"></i>
+        <p>29 January 2024</p>
+     </div>
+     <div>
+        <h1 class="text-xl font-bold text-[#12132D]">What will a mars habitat force that impact in our daily life!!!</h1>
+     </div>
+     <div>
+        <p class="p1">Yes, you can run unit tests and view the results directly within the app. </p>
+     </div>
+
+     <div class="flex gap-5 mt-2">
+        <div class="avatar">
+            <div class="w-14 h-14 rounded-full">
+              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </div>
+          </div>
+          <div>
+            <h1 class="font-bold text-lg text-[#12132D]">Cameron Williamson</h1>
+            <p class="p1">Unknown</p>
+          </div>
+     </div>
+    </div>
+  </div>
+ -->
+
+      </section>
+
+</main>
+
+<!-- footer -->
+
+<footer class="w-full h-96 bg-[#F4F4F5] mt-20 flex flex-col justify-center items-center gap-10">
+
+    <a class="btn btn-ghost text-4xl font-extrabold text-[#12132D]">SOJIB</a>
+    <p class="p1 text-center">Explore our blog for insightful articles, expert opinions, and engaging content, <br> offering valuable insights and inspiration for every reader.</p>
+
+    <div class="flex text-[#12132D] gap-5">
+       <a href="#"> <i class="fa-brands fa-facebook text-3xl"></i></a>
+       <a href="#"> <i class="fa-brands fa-twitter text-3xl"></i></a>
+       <a href="#"> <i class="fa-brands fa-linkedin text-3xl"></i></a>
+       <a href="#"> <i class="fa-brands fa-github text-3xl"></i></a>
+    </div>
+
+    <hr class="bg-[#12132D40] h-[1px] w-[95%] ">
+
+    <p class="font-bold">2024, All Rights Reserved By Sajadur Rahman.</p>
+
+</footer>
+
+
+    <!-- java script link -->
+    <script src="script.js"></script>
+</body>
+</html>
